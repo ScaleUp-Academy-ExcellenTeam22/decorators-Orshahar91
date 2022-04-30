@@ -6,7 +6,7 @@ class InvalidArgumentType(TypeError):
     __module__ = 'TypeError'
 
 
-def type_check(correct_type):
+def type_check(correct_type: type):
     """
     Decorator factory with a decorator that check if the function receives the corrct type of argument.
     :param correct_type: The correct type of argument that need to be passed to the function.
@@ -17,7 +17,7 @@ def type_check(correct_type):
         """
         Decorator in charge of checking the argument type with a wrapper function.
         :param function: The function that receives the argument.
-        :return: wrapper function.
+        :return: The Wrapper function.
         """
         @functools.wraps(function)
         def wrapper(*args):
@@ -37,5 +37,15 @@ def type_check(correct_type):
 
 
 @type_check(int)
-def times(num):
-    return num*2
+def times(number: int):
+    """
+    Driver function to test the program.
+    :param number: Number - integer.
+    :return: The number times 2.
+    """
+    return number*2
+
+
+"""First call should print 6, and 2nd call should raise an InvalidArgumentType error."""
+print(times(3))
+print(times('3'))

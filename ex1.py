@@ -1,15 +1,15 @@
-def surprise(function):
+def surprise(_function):
     """
     Decorator that print surprise instead of the original functionality.
-    :param function: The original function
-    :return: wrapper, basically None.
+    :param _function: The original function.
+    :return: Wrapper, basically None.
     """
-    def wrapper(*args, **kwargs):
+    def wrapper(*_args, **_kwargs):
         """
-        Print surprise!
-        :param args: multiple arguments
-        :param kwargs: multiple keyword arguments
-        :return: None
+        Prints 'surprise!'.
+        :param _args: Multiple arguments.
+        :param _kwargs: Multiple keyword arguments.
+        :return: None.
         """
         print("surprise!")
         return None
@@ -17,9 +17,14 @@ def surprise(function):
 
 
 @surprise
-def times(num):
-    return num*2
+def times(number: int):
+    """
+    Driver function to test the program.
+    :param number: Number - integer.
+    :return: The number times 2.
+    """
+    return number*2
 
 
+"""Should print 'surprise!'. """
 times(2)
-
